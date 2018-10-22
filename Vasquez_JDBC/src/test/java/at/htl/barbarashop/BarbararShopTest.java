@@ -2,15 +2,17 @@ package at.htl.barbarashop;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
+import org.junit.runners.MethodSorters;
 
 import java.sql.*;
 
-import static junit.framework.TestCase.fail;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BarbararShopTest {
     public static final String DRIVER_STRING = "org.apache.derby.jdbc.ClientDriver";
     public static final String CONNECTION_STRING = "jdbc:derby://localhost:1527/db;create=true";
@@ -69,7 +71,7 @@ public class BarbararShopTest {
 
 
     @Test
-    public void ddl() {
+    public void SETUP1_ddl() {
         try {
             Statement stmt = conn.createStatement();
 
@@ -109,13 +111,13 @@ public class BarbararShopTest {
     }
 
     @Test
-    public void dml() {
+    public void SETUP2_dml() {
         int countInserts = 0;
 
         try {
             Statement stmt = conn.createStatement();
 
-            String sql = "INSERT INTO CAREPRODUCT VALUES(1, 'Shampoo', 50, 4)";
+            String sql = "INSERT INTO CAREPRODUCT VALUES(1, 'Shampoo', 50, 4.5)";
             countInserts += stmt.executeUpdate(sql);
 
             sql = "INSERT INTO CAREPRODUCT VALUES(2, 'Conditioner', 32, 5.5)";
@@ -137,7 +139,7 @@ public class BarbararShopTest {
             sql = "INSERT INTO EQUIPMENT VALUES(3, 'Comb', 50)";
             countInserts += stmt.executeUpdate(sql);
 
-            sql = "INSERT INTO EQUIPMENT VALUES(4, 'Scissors', 24)";
+            sql = "INSERT INTO EQUIPMENT VALUES(4, 'Scissor', 24)";
             countInserts += stmt.executeUpdate(sql);
 
 
@@ -169,58 +171,193 @@ public class BarbararShopTest {
     }
 
     @Test
-    public void TestEquipmentPrimaryKey() {
+    public void TEST01_CheckPrimaryKeys() {
         DatabaseMetaData databaseMetaData = null;
-        String columnName = "";
+        String columnNameCP = "",
+                columnNameEQ = "",
+                columnNameHC = "";
 
         try {
             databaseMetaData = conn.getMetaData();
 
             String catalog = null;
             String schema = null;
-            String tableName = "EQUIPMENT";
 
             ResultSet result = databaseMetaData.getPrimaryKeys(
-                    catalog, schema, tableName);
-
+                    catalog, schema, "EQUIPMENT");
 
             while (result.next()) {
-                columnName = result.getString(4);
+                columnNameEQ = result.getString(4);
             }
+
+            result = databaseMetaData.getPrimaryKeys(catalog, schema, "CAREPRODUCT");
+            while (result.next()) {
+                columnNameCP = result.getString(4);
+            }
+
+            result = databaseMetaData.getPrimaryKeys(catalog, schema, "HAIRCOLOR");
+            while (result.next()) {
+                columnNameHC = result.getString(4);
+            }
+
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        assertThat("Primary Key on wrong column", columnName, is("ID"));
+        assertThat("EQUIPMENT primary key on wrong column", columnNameEQ, is("ID"));
+
+        assertThat("CAREPRODUCT primary key on wrong column", columnNameCP, is("ID"));
+
+        assertThat("HAIRCOLOR primary key on wrong column", columnNameHC, is("ID"));
+    }
+
+    @Test
+    public void TEST02_CareProductLowestHighestPrice(){
+        Double lowestPrice = 0.0;
+        Double highestPrice = 0.0;
+
+        try {
+            Statement stmt = conn.createStatement();
+
+            String sql = "SELECT price FROM CAREPRODUCT order by price";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            rs.next();
+            lowestPrice = rs.getDouble("price");
+
+            while (rs.next())
+                highestPrice = rs.getDouble("price");
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        assertThat("Wrong value for lowest price", lowestPrice, is(4.5));
+
+        assertThat("Wrong value for highest price", highestPrice, is(15.5));
 
     }
 
-
     @Test
-    public void TestHaircolorPrimaryKey() {
-        DatabaseMetaData databaseMetaData = null;
-        String columnName = "";
+    public void TEST03_CareProductUpdateQuantity(){
+        int quantity = 0;
 
         try {
-            databaseMetaData = conn.getMetaData();
+            Statement stmt = conn.createStatement();
 
-            String catalog = null;
-            String schema = null;
-            String tableName = "HAIRCOLOR";
+            String sql = "UPDATE careproduct SET quantity = 11 WHERE cpname = 'Pastell spray'";
+            stmt.executeUpdate(sql);
 
-            ResultSet result = databaseMetaData.getPrimaryKeys(
-                    catalog, schema, tableName);
+            sql = "SELECT quantity FROM careproduct WHERE cpname = 'Pastell spray'";
+            ResultSet rs = stmt.executeQuery(sql);
 
+            rs.next();
+            quantity = rs.getInt("quantity");
 
-            while (result.next()) {
-                columnName = result.getString(4);
-            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        assertThat("Haircolor Primary Key on wrong column", columnName, is("ID"));
+        assertThat("Quantity did not change",quantity,is(11));
+    }
+
+    @Test
+    public void TEST04_EquipmentQuantity(){
+        int blowDryerQuantity = 0;
+        int curlerQuantity = 0;
+        int combQuantity = 0;
+        int scissorQuantity = 0;
+        try {
+            PreparedStatement pstmt  = conn.prepareStatement("SELECT quantity FROM EQUIPMENT WHERE eqname = ?");
+
+            pstmt.setString(1,"Blow Dryer");
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            blowDryerQuantity = rs.getInt("quantity");
+
+            pstmt.setString(1,"Curler");
+            rs = pstmt.executeQuery();
+            rs.next();
+            curlerQuantity = rs.getInt("quantity");
+
+            pstmt.setString(1,"Comb");
+            rs = pstmt.executeQuery();
+            rs.next();
+            combQuantity = rs.getInt("quantity");
+
+            pstmt.setString(1,"Scissor");
+            rs = pstmt.executeQuery();
+            rs.next();
+            scissorQuantity = rs.getInt("quantity");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        assertThat("Wrong amount of blow dryers",blowDryerQuantity,is(20));
+
+        assertThat("Wrong amount of curlers",curlerQuantity,is(15));
+
+        assertThat("Wrong amount of combs",combQuantity,is(50));
+
+        assertThat("Wrong amount of scissors",scissorQuantity,is(24));
+    }
+
+    @Test
+    public void TEST05_HaircolorsWithinRangeOfPrices(){
+        int count = 0;
+
+        try {
+            Statement stmt = conn.createStatement();
+
+            String sql = "SELECT * FROM HAIRCOLOR WHERE price >= 15 AND price <=17";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next())
+                count++;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        assertThat("Wrong amount of rows returned ",count,is(4));
+    }
+
+    @Test
+    public void TEST06_HaircolorInsertAndDelete(){
+        String hairColor = "";
+        Boolean rowReturned = false;
+
+        try {
+            Statement stmt = conn.createStatement();
+
+            String sqlU = "INSERT INTO haircolor VALUES(7, 'Yellow', 20, 12.0)";
+            String sqlQ = "SELECT * FROM haircolor WHERE id = 7";
+
+            stmt.executeUpdate(sqlU);
+
+            ResultSet rs = stmt.executeQuery(sqlQ);
+            rs.next();
+            hairColor = rs.getString("hcolor");
+
+
+            sqlU = "DELETE FROM haircolor WHERE id = 7";
+            stmt.executeUpdate(sqlU);
+
+            rs = stmt.executeQuery(sqlQ);
+            if(rs.next())
+                rowReturned = true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        assertThat("Haircolor 'Yellow' was not inserted", hairColor, is("Yellow"));
+
+        assertThat("Haicolor 'Yellow' was not deleted", rowReturned, is(false));
     }
 }

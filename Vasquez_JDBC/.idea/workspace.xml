@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c983ba9a-464b-436c-9873-a97f226e653b" name="Default Changelist" comment="" />
+    <list default="true" id="c983ba9a-464b-436c-9873-a97f226e653b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fb154026-ab34-4abc-ae1a-6c9d9fbacd95.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fb154026-ab34-4abc-ae1a-6c9d9fbacd95.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/htl/barbarashop/BarbararShopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/htl/barbarashop/BarbararShopTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,18 +39,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="db@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="APP: schema" type="6aa84934:DerbyImplModel$Schema" />
-        <item name="CAREPRODUCT: table" type="3b012a07:DerbyImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="APP: schema" type="6aa84934:DerbyImplModel$Schema" />
-        <item name="EQUIPMENT: table" type="3b012a07:DerbyImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="APP: schema" type="6aa84934:DerbyImplModel$Schema" />
         <item name="HAIRCOLOR: table" type="3b012a07:DerbyImplModel$Table" />
       </path>
     </expand>
@@ -56,11 +48,12 @@
     <session id="-341054051">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -83,16 +76,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2958" />
-          <entry key="sql" value="96" />
+          <entry key="java" value="5735" />
+          <entry key="sql" value="109" />
           <entry key="xml" value="141" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2957" />
+          <entry key="JAVA" value="5734" />
           <entry key="SQL" value="8" />
-          <entry key="Scratch" value="89" />
+          <entry key="Scratch" value="102" />
           <entry key="XML" value="141" />
         </counts>
       </usages-collector>
@@ -112,13 +105,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/at/htl/barbarashop/BarbararShopTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="224" column="5" lean-forward="true" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#initJdbc#0;class#BarbararShopTest#0" />
-                <element signature="method#ddl#0;class#BarbararShopTest#0" />
-                <element signature="method#dml#0;class#BarbararShopTest#0" />
+                <element signature="method#teardownJdbc#0;class#BarbararShopTest#0" />
+                <element signature="method#SE_ddl#0;class#BarbararShopTest#0" />
+                <element signature="method#SET_dml#0;class#BarbararShopTest#0" />
+                <element signature="method#TE_CheckPrimaryKeys#0;class#BarbararShopTest#0" />
+                <element signature="method#TEST02_CareProductLowestHighestPrice#0;class#BarbararShopTest#0" />
+                <element signature="method#TEST03_CareProductUpdateQuantity#0;class#BarbararShopTest#0" />
+                <element signature="method#TEST03_EquipmentQuantity#0;class#BarbararShopTest#0" />
+                <element signature="method#TEST03_HaircolorWithinRangeOfPrices#0;class#BarbararShopTest#0" />
+                <element signature="method#TEST06_HaircolorInsertAndDelete#0;class#BarbararShopTest#0" />
               </folding>
             </state>
           </provider>
@@ -128,7 +126,7 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fb154026-ab34-4abc-ae1a-6c9d9fbacd95/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="56" selection-end-column="57" />
+              <caret column="44" selection-start-column="44" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -146,6 +144,14 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>stmt</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>pstmt</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -172,10 +178,10 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="950" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -218,7 +224,7 @@
     <property name="DatabaseDriversLRU" value="derby" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540148681527" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540227560708" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -253,7 +259,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BarbararShopTest.TestCareproductPrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BarbararShopTest.SETUP1_ddl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Vasquez_JDBC" />
       <extension name="coverage">
         <pattern>
@@ -263,13 +269,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="at.htl.barbarashop" />
       <option name="MAIN_CLASS_NAME" value="at.htl.barbarashop.BarbararShopTest" />
-      <option name="METHOD_NAME" value="TestCareproductPrice" />
+      <option name="METHOD_NAME" value="SETUP1_ddl" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BarbararShopTest.TestCareproductPrimaryKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BarbararShopTest.SETUP2_dml" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Vasquez_JDBC" />
       <extension name="coverage">
         <pattern>
@@ -279,13 +285,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="at.htl.barbarashop" />
       <option name="MAIN_CLASS_NAME" value="at.htl.barbarashop.BarbararShopTest" />
-      <option name="METHOD_NAME" value="TestCareproductPrimaryKey" />
+      <option name="METHOD_NAME" value="SETUP2_dml" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BarbararShopTest.TestEquipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BarbararShopTest.TEST01_CheckPrimaryKeys" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Vasquez_JDBC" />
       <extension name="coverage">
         <pattern>
@@ -295,13 +301,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="at.htl.barbarashop" />
       <option name="MAIN_CLASS_NAME" value="at.htl.barbarashop.BarbararShopTest" />
-      <option name="METHOD_NAME" value="TestEquipment" />
+      <option name="METHOD_NAME" value="TEST01_CheckPrimaryKeys" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BarbararShopTest.TestTableAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BarbararShopTest.TEST02_CareProductLowestHighestPrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Vasquez_JDBC" />
       <extension name="coverage">
         <pattern>
@@ -311,7 +317,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="at.htl.barbarashop" />
       <option name="MAIN_CLASS_NAME" value="at.htl.barbarashop.BarbararShopTest" />
-      <option name="METHOD_NAME" value="TestTableAmount" />
+      <option name="METHOD_NAME" value="TEST02_CareProductLowestHighestPrice" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -319,18 +325,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.BarbararShopTest" />
-      <item itemvalue="JUnit.BarbararShopTest.TestTableAmount" />
-      <item itemvalue="JUnit.BarbararShopTest.TestCareproductPrice" />
-      <item itemvalue="JUnit.BarbararShopTest.TestEquipment" />
-      <item itemvalue="JUnit.BarbararShopTest.TestCareproductPrimaryKey" />
+      <item itemvalue="JUnit.BarbararShopTest.TEST01_CheckPrimaryKeys" />
+      <item itemvalue="JUnit.BarbararShopTest.SETUP1_ddl" />
+      <item itemvalue="JUnit.BarbararShopTest.SETUP2_dml" />
+      <item itemvalue="JUnit.BarbararShopTest.TEST02_CareProductLowestHighestPrice" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BarbararShopTest" />
-        <item itemvalue="JUnit.BarbararShopTest.TestCareproductPrimaryKey" />
-        <item itemvalue="JUnit.BarbararShopTest.TestEquipment" />
-        <item itemvalue="JUnit.BarbararShopTest.TestCareproductPrice" />
-        <item itemvalue="JUnit.BarbararShopTest.TestTableAmount" />
+        <item itemvalue="JUnit.BarbararShopTest.TEST02_CareProductLowestHighestPrice" />
+        <item itemvalue="JUnit.BarbararShopTest.SETUP2_dml" />
+        <item itemvalue="JUnit.BarbararShopTest.SETUP1_ddl" />
+        <item itemvalue="JUnit.BarbararShopTest.TEST01_CheckPrimaryKeys" />
       </list>
     </recent_temporary>
   </component>
@@ -347,46 +353,49 @@
       <workItem from="1540136846745" duration="898000" />
       <workItem from="1540137991036" duration="9283000" />
       <workItem from="1540148207086" duration="477000" />
+      <workItem from="1540195813901" duration="865000" />
+      <workItem from="1540221203991" duration="6310000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BarbararShopTest - 2018.10.21 at 20h 51m 54s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 01m 09s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 20h 57m 26s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 01m 15s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 20h 59m 09s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 13m 41s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest_TestCareproductPrimaryKey - 2018.10.21 at 21h 00m 07s.xml">
-      <configuration name="BarbararShopTest.TestCareproductPrimaryKey" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 21h 00m 26s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 20m 47s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 21h 01m 22s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 30m 18s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 21h 02m 26s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 30m 26s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 21h 02m 37s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 45m 09s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 21h 02m 55s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 57m 30s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BarbararShopTest - 2018.10.21 at 21h 03m 10s.xml">
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 58m 17s.xml">
+      <configuration name="BarbararShopTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BarbararShopTest - 2018.10.22 at 18h 58m 32s.xml">
       <configuration name="BarbararShopTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10658000" />
+    <option name="totallyTimeSpent" value="17833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5228849" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -398,7 +407,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32991204" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32991204" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.398827" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -416,7 +425,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.36845636" />
+      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.23959732" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
@@ -425,6 +434,18 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/at/htl/barbarashop/BarbararShopTest.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
@@ -444,7 +465,7 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fb154026-ab34-4abc-ae1a-6c9d9fbacd95/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="56" selection-end-column="57" />
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -453,13 +474,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/at/htl/barbarashop/BarbararShopTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="224" column="5" lean-forward="true" selection-start-line="224" selection-start-column="5" selection-end-line="224" selection-end-column="5" />
+        <state relative-caret-position="136">
+          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initJdbc#0;class#BarbararShopTest#0" />
-            <element signature="method#ddl#0;class#BarbararShopTest#0" />
-            <element signature="method#dml#0;class#BarbararShopTest#0" />
+            <element signature="method#teardownJdbc#0;class#BarbararShopTest#0" />
+            <element signature="method#SE_ddl#0;class#BarbararShopTest#0" />
+            <element signature="method#SET_dml#0;class#BarbararShopTest#0" />
+            <element signature="method#TE_CheckPrimaryKeys#0;class#BarbararShopTest#0" />
+            <element signature="method#TEST02_CareProductLowestHighestPrice#0;class#BarbararShopTest#0" />
+            <element signature="method#TEST03_CareProductUpdateQuantity#0;class#BarbararShopTest#0" />
+            <element signature="method#TEST03_EquipmentQuantity#0;class#BarbararShopTest#0" />
+            <element signature="method#TEST03_HaircolorWithinRangeOfPrices#0;class#BarbararShopTest#0" />
+            <element signature="method#TEST06_HaircolorInsertAndDelete#0;class#BarbararShopTest#0" />
           </folding>
         </state>
       </provider>
